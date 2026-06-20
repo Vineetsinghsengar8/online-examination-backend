@@ -153,6 +153,19 @@ def _sync_mysql_schema(app):
 def create_app():
     app = Flask(__name__)
 
+    @app.route("/")
+    def home():
+        return {
+            "status": "running",
+            "message": "Online Examination Backend API is working",
+            "available_routes": [
+                "/login",
+                "/register",
+                "/student",
+                "/admin"
+            ]
+        }
+
     # ── Configuration ──────────────────────────────────────────────────────────
     app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "dev-secret-key-change-in-prod")
 
