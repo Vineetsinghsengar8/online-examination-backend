@@ -209,12 +209,12 @@ def create_app():
     from blueprints.auth import auth_bp
     from blueprints.student import student_bp
     from blueprints.admin import admin_bp
-    from blueprints.ai_proctor import ai_bp
+    #from blueprints.ai_proctor import ai_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(student_bp)
     app.register_blueprint(admin_bp)
-    app.register_blueprint(ai_bp)
+    #app.register_blueprint(ai_bp)
 
     # ── Create Tables & Seed ───────────────────────────────────────────────────
     with app.app_context():
