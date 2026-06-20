@@ -65,6 +65,24 @@ def _create_mysql_database_if_needed(host, port, user, password, database):
         print(f"[DB] MySQL connection failed: {e}")
         return False
 
+def create_app():
+    app = Flask(__name__)
+
+    @app.route("/")
+    def home():
+        return {
+            "status": "running",
+            "message": "Online Examination Backend API is working"
+        }
+
+    # your existing configuration code continues here
+    app.config["SECRET_KEY"] = os.getenv(
+        "SECRET_KEY",
+        "dev-secret-key-change-in-prod"
+    )
+
+    ...
+
 
 def _sync_mysql_schema(app):
     """Bring older MySQL tables in line with the current SQLAlchemy models."""
